@@ -9,8 +9,8 @@ import java.util.List;
 public class FileHelper {
     public static void checkFileInPath(Path path) throws IOException {
         if(!Files.exists(path)){
-            System.out.println("File not found path: " + path.getFileName());
-            throw new IOException("File not found path: " + path.getFileName());
+            System.out.println("File not found path: " + path);
+            throw new IOException("File not found path: " + path);
         }
     }
 
