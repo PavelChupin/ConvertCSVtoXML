@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlType;
 // определяем корневой элемент
 @XmlRootElement(name = "KVIT")
 // определяем последовательность тегов в XML
-@XmlType(propOrder = {"idnor", "es", "sizeEs", "dateEs", "recho"})
+@XmlType(propOrder = {"idnor", "es", "sizeEs", "dateEs", "recho","dateKvit","timeKvit","oper","telOper"})
 public class Kvit {
     //Имена файлов
     private String fileNameKvid;
@@ -63,22 +63,22 @@ public class Kvit {
         return dateEs;
     }
 
-    @XmlTransient
+    @XmlElement(name = "DATE_KVIT")
     public String getDateKvit() {
         return dateKvit;
     }
 
-    @XmlTransient
+    @XmlElement(name = "TIME_KVIT")
     public String getTimeKvit() {
         return timeKvit;
     }
 
-    @XmlTransient
+    @XmlElement(name = "OPER")
     public String getOper() {
         return oper;
     }
 
-    @XmlTransient
+    @XmlElement(name = "TEL_OPER")
     public String getTelOper() {
         return telOper;
     }
