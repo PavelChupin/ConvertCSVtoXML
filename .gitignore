@@ -33,6 +33,7 @@ TestCase/
 target/
 out/
 *.log
+*.xml
 
 
 

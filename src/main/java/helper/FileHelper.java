@@ -1,5 +1,10 @@
 package helper;
 
+import data.Kvit;
+
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -22,5 +27,15 @@ public class FileHelper {
             }
         }
         return textString;
+    }
+
+    public static void saveXML(Path fileOut, Kvit kvit) throws JAXBException {
+        JAXBContext context = JAXBContext.newInstance(Kvit.class);
+        Marshaller marshaller = context.createMarshaller();
+        // устанавливаем флаг для читабельного вывода XML в JAXB
+        //marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+        marshaller.setProperty("jaxb.encoding", "Unicode”);
+        // маршаллинг объекта в файл
+        marshaller.marshal(kvit, fileOut.toFile());
     }
 }
