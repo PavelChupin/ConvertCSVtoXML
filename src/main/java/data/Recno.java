@@ -2,11 +2,10 @@ package data;
 
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 // определяем последовательность тегов в XML
-@XmlType(propOrder = {"ES_REC","REZ_ES"})
+@XmlType(propOrder = {"ES_REC", "REZ_ES"})
 public class Recno {
     private String ES_REC;
     private String REZ_ES;

@@ -1,4 +1,4 @@
-import build.BuilderKvit;
+import build.KvitBuilder;
 import data.Kvit;
 import helper.FileHelper;
 
@@ -9,21 +9,23 @@ import java.nio.file.Paths;
 
 public class ConvertCSVtoXML {
     public static void main(String[] args) throws IOException, JAXBException {
-
+        if (args.length != 3) {
+            System.out.println("Count params not result = 3");
+            return;
+        }
 
         Path fileOneIn = Paths.get(args[0]);
         Path fileTwoIn = Paths.get(args[1]);
-        Path fileXMLOut  = Paths.get(args[2]);
+        Path fileXMLOut = Paths.get(args[2]);
 
         //Добавить проверочки что файлы существуют
         FileHelper.checkFileInPath(fileOneIn);
         FileHelper.checkFileInPath(fileTwoIn);
 
-        Kvit k = BuilderKvit.getKvit(fileOneIn, fileTwoIn);
+        //Получаем разобранный объект
+        Kvit k = new KvitBuilder().buildKvit(fileOneIn, fileTwoIn);
 
-        BuilderKvit.saveXML(fileXMLOut);
-
-        System.out.println(k);
-        System.out.println(k.getRechos());
+        //Сохраняем в XML
+        FileHelper.saveObjectToXMLFile(fileXMLOut, k);
     }
 }

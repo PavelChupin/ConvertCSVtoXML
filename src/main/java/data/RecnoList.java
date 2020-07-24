@@ -1,6 +1,8 @@
 package data;
 
-import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlType;
 import java.util.List;
 
 // определяем последовательность тегов в XML
@@ -22,11 +24,15 @@ public class RecnoList {
         return RECNO_ES;
     }
 
-    //@XmlElementWrapper(name="RECNO_ES")
     @XmlElement(name = "ES_REC")
     public List<Recno> getRechos() {
         return rechos;
     }
 
-
+    @Override
+    public String toString() {
+        return "RecnoList{" +
+                "RECNO_ES='" + RECNO_ES + '\'' +
+                '}';
+    }
 }
