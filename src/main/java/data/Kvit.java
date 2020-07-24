@@ -1,7 +1,5 @@
 package data;
 
-import com.sun.xml.txw2.annotation.XmlCDATA;
-
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
@@ -10,79 +8,79 @@ import javax.xml.bind.annotation.XmlType;
 // определяем корневой элемент
 @XmlRootElement(name = "KVIT")
 // определяем последовательность тегов в XML
-@XmlType(propOrder = {"IDNOR", "ES", "SIZE_ES", "DATE_ES", "rechos"})
+@XmlType(propOrder = {"idnor", "es", "sizeEs", "dateEs", "recho"})
 public class Kvit {
     //Имена файлов
     private String fileNameKvid;
     private String fileNameRecno;
 
     //Формат файла KVIT
-    private String IDNOR;
-    private String ES;
-    private String SIZE_ES;
-    private String DATE_ES;
-    private String DATE_KVIT;
-    private String TIME_KVIT;
-    private String OPER;
-    private String TEL_OPER;
+    private String idnor;
+    private String es;
+    private String sizeEs;
+    private String dateEs;
+    private String dateKvit;
+    private String timeKvit;
+    private String oper;
+    private String telOper;
 
-    private RecnoList rechos;
+    private RecnoList recho;
 
-    public Kvit(String fileNameKvid, String fileNameRecno, RecnoList rechos, String IDNOR, String ES, String SIZE_ES, String DATE_ES, String DATE_KVIT, String TIME_KVIT, String OPER, String TEL_OPER) {
+    public Kvit(String fileNameKvid, String fileNameRecno, RecnoList recho, String idnor, String es, String sizeEs, String dateEs, String dateKvit, String timeKvit, String oper, String telOper) {
         this.fileNameKvid = fileNameKvid;
         this.fileNameRecno = fileNameRecno;
-        this.rechos = rechos;
-        this.IDNOR = IDNOR;
-        this.ES = ES;
-        this.SIZE_ES = SIZE_ES;
-        this.DATE_ES = DATE_ES;
-        this.DATE_KVIT = DATE_KVIT;
-        this.TIME_KVIT = TIME_KVIT;
-        this.OPER = OPER;
-        this.TEL_OPER = TEL_OPER;
+        this.recho = recho;
+        this.idnor = idnor;
+        this.es = es;
+        this.sizeEs = sizeEs;
+        this.dateEs = dateEs;
+        this.dateKvit = dateKvit;
+        this.timeKvit = timeKvit;
+        this.oper = oper;
+        this.telOper = telOper;
     }
 
     public Kvit() {
     }
 
     @XmlElement(name = "IDNOR")
-    public String getIDNOR() {
-        return IDNOR;
+    public String getIdnor() {
+        return idnor;
     }
 
     @XmlElement(name = "ES")
-    public String getES() {
-        return ES;
+    public String getEs() {
+        return es;
     }
 
     @XmlElement(name = "SIZE_ES")
-    public String getSIZE_ES() {
-        return SIZE_ES;
+    public String getSizeEs() {
+        return sizeEs;
     }
 
     @XmlElement(name = "DATE_ES")
-    public String getDATE_ES() {
-        return DATE_ES;
+    public String getDateEs() {
+        return dateEs;
     }
 
     @XmlTransient
-    public String getDATE_KVIT() {
-        return DATE_KVIT;
+    public String getDateKvit() {
+        return dateKvit;
     }
 
     @XmlTransient
-    public String getTIME_KVIT() {
-        return TIME_KVIT;
+    public String getTimeKvit() {
+        return timeKvit;
     }
 
     @XmlTransient
-    public String getOPER() {
-        return OPER;
+    public String getOper() {
+        return oper;
     }
 
     @XmlTransient
-    public String getTEL_OPER() {
-        return TEL_OPER;
+    public String getTelOper() {
+        return telOper;
     }
 
     @XmlTransient
@@ -96,8 +94,8 @@ public class Kvit {
     }
 
     @XmlElement(name = "RECNO_ES")
-    public RecnoList getRechos() {
-        return rechos;
+    public RecnoList getRecho() {
+        return recho;
     }
 
     @Override
@@ -105,15 +103,15 @@ public class Kvit {
         return "Kvit{" +
                 "fileNameKvid='" + fileNameKvid + '\'' +
                 ", fileNameRecno='" + fileNameRecno + '\'' +
-                ", IDNOR='" + IDNOR + '\'' +
-                ", ES='" + ES + '\'' +
-                ", SIZE_ES='" + SIZE_ES + '\'' +
-                ", DATE_ES='" + DATE_ES + '\'' +
-                ", DATE_KVIT='" + DATE_KVIT + '\'' +
-                ", TIME_KVIT='" + TIME_KVIT + '\'' +
-                ", OPER='" + OPER + '\'' +
-                ", TEL_OPER='" + TEL_OPER + '\'' +
-                ", rechos=" + rechos +
+                ", IDNOR='" + idnor + '\'' +
+                ", ES='" + es + '\'' +
+                ", SIZE_ES='" + sizeEs + '\'' +
+                ", DATE_ES='" + dateEs + '\'' +
+                ", DATE_KVIT='" + dateKvit + '\'' +
+                ", TIME_KVIT='" + timeKvit + '\'' +
+                ", OPER='" + oper + '\'' +
+                ", TEL_OPER='" + telOper + '\'' +
+                ", rechos=" + recho +
                 '}';
     }
 }

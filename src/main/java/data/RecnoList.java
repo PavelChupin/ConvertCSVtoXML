@@ -6,22 +6,22 @@ import javax.xml.bind.annotation.XmlType;
 import java.util.List;
 
 // определяем последовательность тегов в XML
-@XmlType(propOrder = {"RECNO_ES", "rechos"})
+@XmlType(propOrder = {"recnoEs", "rechos"})
 public class RecnoList {
-    private String RECNO_ES;
+    private String recnoEs;
     private List<Recno> rechos;
 
     public RecnoList() {
     }
 
-    public RecnoList(String RECNO_ES, List<Recno> rechos) {
-        this.RECNO_ES = RECNO_ES;
+    public RecnoList(String recnoEs, List<Recno> rechos) {
+        this.recnoEs = recnoEs;
         this.rechos = rechos;
     }
 
     @XmlAttribute(name = "nRec")
-    public String getRECNO_ES() {
-        return RECNO_ES;
+    public String getRecnoEs() {
+        return recnoEs;
     }
 
     @XmlElement(name = "ES_REC")
@@ -32,7 +32,7 @@ public class RecnoList {
     @Override
     public String toString() {
         return "RecnoList{" +
-                "RECNO_ES='" + RECNO_ES + '\'' +
+                "RECNO_ES='" + recnoEs + '\'' +
                 '}';
     }
 }

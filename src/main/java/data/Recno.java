@@ -5,24 +5,24 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 // определяем последовательность тегов в XML
-@XmlType(propOrder = {"ES_REC", "REZ_ES"})
+@XmlType(propOrder = {"esRec", "rezEs"})
 public class Recno {
-    private String ES_REC;
-    private String REZ_ES;
+    private String esRec;
+    private String rezEs;
 
-    public Recno(String ES_REC, String REZ_ES) {
-        this.ES_REC = ES_REC;
-        this.REZ_ES = REZ_ES;
+    public Recno(String esRec, String rezEs) {
+        this.esRec = esRec;
+        this.rezEs = rezEs;
     }
 
     @XmlAttribute(name = "IdInfoOR")
-    public String getES_REC() {
-        return ES_REC;
+    public String getEsRec() {
+        return esRec;
     }
 
     @XmlElement(name = "REZ_ES")
-    public String getREZ_ES() {
-        return REZ_ES;
+    public String getRezEs() {
+        return rezEs;
     }
 
     public Recno() {
@@ -31,8 +31,8 @@ public class Recno {
     @Override
     public String toString() {
         return "Recno{" +
-                "ES_REC='" + ES_REC + '\'' +
-                ", REZ_ES='" + REZ_ES + '\'' +
+                "ES_REC='" + esRec + '\'' +
+                ", REZ_ES='" + rezEs + '\'' +
                 '}';
     }
 }

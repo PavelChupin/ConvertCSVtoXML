@@ -23,7 +23,7 @@ public class ConvertCSVtoXML {
         FileHelper.checkFileInPath(fileTwoIn);
 
         //Получаем разобранный объект
-        Kvit k = new KvitBuilder().buildKvit(fileOneIn, fileTwoIn);
+        Kvit k = KvitBuilder.buildKvit(fileOneIn, fileTwoIn);
 
         //Сохраняем в XML
         FileHelper.saveObjectToXMLFile(fileXMLOut, k);
