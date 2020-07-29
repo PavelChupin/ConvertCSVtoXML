@@ -6,7 +6,7 @@
 
     <groupId>ru.ysolutions.rnpk.convert_csv_to_xml</groupId>
     <artifactId>convert_csv_to_xml</artifactId>
-    <version>1.0.001</version>
+    <version>1.0.002</version>
 
     <packaging>jar</packaging>
 

@@ -7,6 +7,7 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -33,11 +34,22 @@ public class FileHelper {
     public static void saveObjectToXMLFile(Path fileOut, Kvit kvit) throws JAXBException {
         JAXBContext context = JAXBContext.newInstance(Kvit.class);
         Marshaller marshaller = context.createMarshaller();
+
+        //Устанавливаем  кодировку
+        marshaller.setProperty(Marshaller.JAXB_ENCODING, StandardCharsets.UTF_8.toString());
+
+        //Убираем standalone из тега заголовка
+        //Включаем режим вывода только XML фрагмента без заголовка
+        marshaller.setProperty(Marshaller.JAXB_FRAGMENT, Boolean.TRUE);
+        //Добавляем заголовок в нужном виде
+        marshaller.setProperty("com.sun.xml.bind.xmlHeaders","<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
+
         // устанавливаем флаг для читабельного вывода XML в JAXB
         marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+
         //Включаем экранирование символов
         marshaller.setProperty(CharacterEscapeHandler.class.getName(), new CustomCharacterEscapeHandler());
-        //marshaller.setProperty("jaxb.encoding", "Unicode");
+
         // маршаллинг объекта в файл
         marshaller.marshal(kvit, fileOut.toFile());
     }
